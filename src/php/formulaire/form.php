@@ -1,4 +1,4 @@
-<form method="post" action="newpage.php">
+<form method="post" action="../cibleform/newpage.php">
  
 <p>
     On insèrera ici les éléments de notre formulaire.
