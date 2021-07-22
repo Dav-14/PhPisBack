@@ -20,12 +20,10 @@
 
     <div>
         <a href="src/php/formulaire/form.php">Faille XSS formulaire</a><br />  
-        <a href="src/php/formulaire/form_upload.php">Upload file</a><br />      
+        <a href="src/php/formulaire/form_upload.php">Upload file</a><br />   
+        <a href="src/php/formulaire/form_authentification.php">Sign in</a><br />         
     </div>
-    <!-- lastname=ragot&amp;firstname=David&amp;repeat=34 -->
     <!-- Le pied de page -->
-    
-    
     
     </body>
 </html>
