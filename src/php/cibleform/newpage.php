@@ -2,12 +2,17 @@
 
 include("../header.php");
 
-if (key_exists("firstname",$_GET) && key_exists("lastname",$_GET) && key_exists("repeat",$_GET)){
+if (key_exists("firstname",$_POST) && key_exists("lastname",$_POST) && key_exists("repeat",$_POST)){
     
-    $repeat = (int) $_GET["repeat"];//Peut valoir 0, si on a du text dans repeat  
+    $repeat = (int) $_POST["repeat"];//Si text alors vaut 0 sinon vaut repeat
 
-    $firstname = $_GET["firstname"];
-    $lastname = $_GET["lastname"];
+    $firstname = htmlspecialchars($_POST["firstname"]);
+    $lastname = htmlspecialchars($_POST["lastname"]);
+
+    /* Faille XSS, injection HTML possible
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    */
 
     $lastname = strtoupper($lastname);//UPPER CASE
 

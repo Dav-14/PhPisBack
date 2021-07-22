@@ -6,7 +6,7 @@
     </head>
  
     <body>
-    <?php include("src/header.php"); ?>
+    <?php include("src/php/header.php"); ?>
     <!-- Le corps -->
     
     <div id="corps">
@@ -19,8 +19,8 @@
     </div>
 
 
-    <a href="src/pages/newpage.php?lastname=ragot&amp;firstname=David&amp;repeat=34">NEW PAGES</a>    
-
+    <a href="src/php/formulaire/form.php">NEW PAGES</a>    
+    <!-- lastname=ragot&amp;firstname=David&amp;repeat=34 -->
     <!-- Le pied de page -->
     
     
