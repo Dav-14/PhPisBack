@@ -18,8 +18,10 @@
         </p>
     </div>
 
-
-    <a href="src/php/formulaire/form.php">NEW PAGES</a>    
+    <div>
+        <a href="src/php/formulaire/form.php">Faille XSS formulaire</a><br />  
+        <a href="src/php/formulaire/form_upload.php">Upload file</a><br />      
+    </div>
     <!-- lastname=ragot&amp;firstname=David&amp;repeat=34 -->
     <!-- Le pied de page -->
     
