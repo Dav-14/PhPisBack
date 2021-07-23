@@ -1,22 +1,27 @@
 <?php 
 
+function DeleteExtension($filename){
+    $position = strpos($filename,".");
+    return substr($filename, 0, $position);
+}
+
+
+function GetExtension($filename){
+    return pathinfo($filename, PATHINFO_EXTENSION);
+
+}
+
 class DataGestion {
 
     private $locationDir = "/php/phpisback/data/";
     private $BiggerIntImgName = 0;
 
     function __construct(){
-        scanImgDir();
-    }
-
-
-    private function DeleteExtension($filename){
-        $position = strpos($file_name,".");
-        return substr($file_name, 0, $position);
+        $this->scanImgDir();
     }
 
     function scanImgDir(){
-        $scandir = scandir($this->locationDir . "img/");
+        $scandir = scandir($_SERVER["DOCUMENT_ROOT"] . $this->locationDir . "img/");
         foreach($scandir as $file){
             $fileWithoutExtension = DeleteExtension($file);
             if (((int) $fileWithoutExtension) > 0){
@@ -29,8 +34,10 @@ class DataGestion {
 
     }
 
-    function getNextImgName(){
+    public function getNextImgName(){
         return $this->BiggerIntImgName + 1;
     }
+
+    
 }
 ?>
