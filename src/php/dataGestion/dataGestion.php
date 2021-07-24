@@ -14,7 +14,7 @@ function GetExtension($filename){
 class DataGestion {
 
     private $locationDir = "/php/phpisback/data/";
-    private $BiggerIntImgName = 0;
+    private $biggerIntImgName = 0;
 
     function __construct(){
         $this->scanImgDir();
@@ -34,8 +34,18 @@ class DataGestion {
 
     }
 
+    function createImgTxtFile(){
+        $imgFileCounter = fopen($_SERVER["DOCUMENT_ROOT"] . $this->locationDir . "txt/" .'imgDirCounter.txt', 'a+');
+        if ($imgFileCounter){
+            //while ($ligne = fgets($imgFileCounter) !== false){
+                
+            fputs($imgFileCounter, $this->biggerIntImgName);
+        }
+        fclose($imgFileCounter);
+    }
+
     public function getNextImgName(){
-        return $this->BiggerIntImgName + 1;
+        return $this->biggerIntImgName + 1;
     }
 
     
