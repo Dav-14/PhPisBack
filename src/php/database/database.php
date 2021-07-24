@@ -3,7 +3,7 @@
 class DataBase
 {
 
-    private PDO $bdd;
+    protected PDO $bdd;
 
     function __construct(){
         try {
@@ -18,14 +18,19 @@ class DataBase
         $req->execute(array('email' => $email));
 
         if ($data = $req->fetch()){
+            $req->closeCursor();
             return true;
         }
+        $req->closeCursor();
         return false;
+        
     }
     
     function updateEmail(User $c, $email){
         $req = $this->bdd->prepare('UPDATE users SET email WHERE email = :email');
         $req->execute(array('email' => $email));
+        $req->closeCursor();
+
     }
     
     function addClients(){
@@ -36,6 +41,8 @@ class DataBase
             'prenom' => $prenom,
             'password' => $password
         ));
+        $req->closeCursor();
+
     
     }
 }
