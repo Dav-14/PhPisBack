@@ -13,7 +13,6 @@ class DataBase
         }
     }
 
-
     function isClientsExist($email): bool{
         $req = $this->bdd->prepare('SELECT * FROM users WHERE email = :email');
         $req->execute(array('email' => $email));
