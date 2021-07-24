@@ -5,8 +5,8 @@
         <title>Mon super site</title>
     </head>
  
-    <body>
-    <?php include("src/php/header.php"); ?>
+    <body> 
+    <?php include("src/php/pageStructure/header.php"); ?>
     <!-- Le corps -->
     
     <div id="corps">
@@ -21,7 +21,9 @@
     <div>
         <a href="src/php/formulaire/form.php">Faille XSS formulaire</a><br />  
         <a href="src/php/formulaire/form_upload.php">Upload file</a><br />   
-        <a href="src/php/formulaire/form_authentification.php">Sign in</a><br />         
+        <a href="src/php/formulaire/form_authentification.php">Sign in</a><br />
+        <a href="src/php/formulaire/minichat.php">Faille XSS formulaire</a><br />  
+        
     </div>
     <!-- Le pied de page -->
     
