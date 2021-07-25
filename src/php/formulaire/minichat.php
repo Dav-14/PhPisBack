@@ -26,8 +26,6 @@
         }else{
             echo "Aucun Message";
         }
-    
-    
     ?>    
 </div>
 

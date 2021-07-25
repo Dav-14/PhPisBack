@@ -1,19 +1,6 @@
 <?php
     include("database.php");
 
-
-    class Message{
-
-        public string $pseudo;
-        public string $message;
-
-        function __construct($pseudo, $message){
-            $this->pseudo = $pseudo;
-            $this->message = $message;
-        }
-    }
-
-
     class ChatBase extends DataBase
     {
         function last10Message (): array{

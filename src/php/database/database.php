@@ -1,5 +1,19 @@
 <?php
    
+class Message
+{
+    public $pseudo;
+    public $message;
+
+    function __construct($pseudo,$message){
+        $this->pseudo = $pseudo;
+        $this->message = $message;
+    }
+}
+
+
+
+
 class DataBase
 {
 
