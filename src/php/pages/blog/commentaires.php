@@ -12,7 +12,7 @@
                     $com->display();
                 }
             }else{
-                echo "Il n'y a aucun commentaires, ajoutez en un !"
+                echo "Il n'y a aucun commentaires, ajoutez en un !";
             }
         }else{
             echo "Aucun Billets référencé à $id_billet <br/>";
