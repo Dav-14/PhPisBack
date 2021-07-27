@@ -1,24 +1,29 @@
 <?php
     include("database.php");
-    include("../pages/blog/commentaire.php");
+    include("../blog/commentaire.php");
+    include("../blog/billets.php");
   
     class BlogBase extends DataBase
     {
-        function getBillets($id_billets):array{
-            $req = $this->bdd->prepare('SELECT titre,contenu, date_creation FROM billets WHERE id = :id_billets');
+        function getBillet($id_billet){
+            $req = $this->bdd->prepare('SELECT titre,contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y %Hh%imin%ss\') as date FROM billets WHERE id = :id_billets');
             $req->execute(array(
-                "id_billets" => $id_billets
+                "id_billets" => $id_billet
             ));
     
-            $array = $req->fetch();
+            $data = $req->fetch();
             $req->closeCursor();
-            return $array;
+            if(!empty($data)){
+                return new Billet($id_billet,$data["titre"], $data['contenu'],$data['date']);;
+            }else{
+                return null;
+            }
         }
         
-        function getCommentaires($id_billets){
-            $req = $this->bdd->prepare('SELECT id,auteur,commentaire,date_commentaire FROM commentaires WHERE id_billets = :id_billets ORDER BY ID DESC');
+        function getCommentaires($id_billets):array{
+            $req = $this->bdd->prepare('SELECT id,auteur,commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y %Hh%imin%ss\') as date FROM commentaires WHERE id_billet = :id ORDER BY ID DESC LIMIT 0,10');
             $req->execute(array(
-                "id_billets" => $id_billets
+                "id" => $id_billets
             ));
     
             $array = array();
@@ -30,5 +35,18 @@
             $req->closeCursor();
             return $array;//Si vide, aucun commentaire présent
         }
+
+        function getBilletsList():array{
+            $req = $this->bdd->prepare('SELECT id,titre,contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y %Hh%imin%ss\') as date FROM billets ORDER BY ID DESC');
+            $req->execute();
+            $array = array();
+            while ($data = $req->fetch()){
+                $array[] = new Billet($data["id"],$data["titre"], $data['contenu'],$data['date']);
+            }
+
+            $req->closeCursor();
+            return $array;//Si vide, aucun commentaire présent
+        }
+
     }
 ?>

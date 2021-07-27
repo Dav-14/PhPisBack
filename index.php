@@ -23,7 +23,7 @@
         <a href="src/php/formulaire/form_upload.php">Upload file</a><br />   
         <a href="src/php/formulaire/form_authentification.php">Sign in</a><br />
         <a href="src/php/formulaire/minichat.php">Minichat</a><br />  
-        <a href="src/php/pages/blog.php">BLOG</a><br />  
+        <a href="src/php/blog/blog.php">BLOG</a><br />  
 
         
     </div>
