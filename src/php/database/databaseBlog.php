@@ -37,7 +37,7 @@
         }
 
         function getBilletsList():array{
-            $req = $this->bdd->prepare('SELECT id,titre,contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y %Hh%imin%ss\') as date FROM billets ORDER BY ID DESC');
+            $req = $this->bdd->prepare('SELECT id,titre,contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y %Hh%imin%ss\') as date FROM billets ORDER BY ID DESC LIMIT 0,5');
             $req->execute();
             $array = array();
             while ($data = $req->fetch()){

@@ -20,6 +20,7 @@
                     $billet->display(false);
                     $commentaires = $db->getCommentaires($id_billet);
                     if (!empty($commentaires)){
+                        echo "<h2>Commentaires</h2>";
                         foreach($commentaires as $com){
                             $com->display();
                         }
